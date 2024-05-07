@@ -1,4 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Testing commit for private repo
 
 # dependencies
 /node_modules
