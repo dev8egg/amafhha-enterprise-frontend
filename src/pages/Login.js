@@ -1,17 +1,20 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 
-const Login = ({ history }) => {
+
+const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     // Implement your login logic here
     if (username === 'example' && password === 'password') {
       // Successful login
-      console.log('Login successful');
+      localStorage.setItem('authToken', 'authenticated');
       // Redirect the user to another page
-      history.push('/dashboard');
+      navigate('/dashboard');
     } else {
       // Failed login
       setErrorMessage('Invalid username or password');
