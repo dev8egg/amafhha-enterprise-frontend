@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Layout from './pages/Layout';
+import Dashboard from './pages/Dashboard/Dashboard';
+import Jobs from './pages/Jobs/Jobs';
+import Inventory from './pages/Inventory/Inventory';
+import CuttingRequest from './pages/CuttingRequest/CuttingRequest';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -20,10 +24,27 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        {/* If authenticated, route to Dashboard, else route to Login */}
-        <Route path="/dashboard" element={authenticated ? <Dashboard /> : <Navigate to="/login" />} />
-        <Route path="/" element={authenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} />
-        {/* Other routes */}
+         <Route
+          path="/dashboard/"
+          element={authenticated ? <Layout><Dashboard /></Layout> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/jobs/*"
+          element={authenticated ? <Layout><Jobs /></Layout> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/inventory/"
+          element={authenticated ? <Layout><Inventory /></Layout> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/dashboard/cutting-request/"
+          element={authenticated ? <Layout><CuttingRequest /></Layout> : <Navigate to="/login" />}
+        />
+        {/* Redirect to login if not authenticated */}
+        <Route
+          path="/*"
+          element={authenticated ? <Navigate to="/dashboard" /> : <Navigate to="/login" />}
+        />
       </Routes>
     </Router>
   );
