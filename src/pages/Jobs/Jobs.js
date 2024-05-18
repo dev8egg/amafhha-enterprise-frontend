@@ -6,11 +6,54 @@ import Modal from '../../components/Modal';
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([
-    { id: 1, name: 'test job', by: "Monis", created_at: new Date().toDateString() },
-    { id: 2, name: 'test job 2', by: "Monis", created_at: new Date().toDateString() },
-    { id: 3, name: 'test job 3', by: "Monis", created_at: new Date().toDateString() },
-    { id: 4, name: 'test job 4', by: "Monis", created_at: new Date().toDateString() }
+    {
+      id: 1,
+      name: 'Design website layout',
+      description: '',
+      order_in_sheet:50,
+      order_in_pieces:100,
+      deliver_date: '2024-05-20',
+      costing_req: false,
+      account_of: "tester",
+      client_name: "Kababjees",
+      updated_by: "monis",
+      created_by: 'John Doe',
+      updated_at: '2024-05-11',
+      created_at: '2024-05-18'
+    },
+    {
+      id: 2,
+      name: 'Develop backend API',
+      description: '',
+      order_in_sheet: 15, 
+      order_in_pieces: 30,
+      deliver_date: '2024-05-20',
+      costing_req: false,
+      account_of: "tester",
+      client_name: "Kababjees",
+      updated_by: "monis",
+      created_by: 'Jane Smith',
+      updated_at: '2024-05-11',
+      created_at: '2024-05-17'
+    },
+    {
+      id: 3,
+      name: 'Create marketing campaign',
+      description: '',
+      order_in_sheet: 5, 
+      order_in_pieces: 10,
+      deliver_date: '2024-05-20',
+      costing_req: false,
+      account_of: "tester",
+      client_name: "Kababjees",
+      updated_by: "monis",
+      created_by: 'Emily Johnson',
+      updated_at: '2024-05-11',
+      created_at: '2024-05-16'
+    }
   ]);
+
+
   const [selectedJob, setSelectedJob] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
   const [showViewModal, setShowViewModal] = useState(false);
@@ -34,12 +77,13 @@ const Jobs = () => {
 
   // Function to handle adding a new job
   const handleAddJob = (newJob) => {
+    console.log({ id: jobs.length + 1, ...newJob })
     setJobs([...jobs, { id: jobs.length + 1, ...newJob }]);
     setShowAddModal(false);
   };
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container">
       {/* View Jobs */}
       <ViewJobs
         jobs={jobs}
@@ -50,7 +94,7 @@ const Jobs = () => {
       {/* Add New Job Modal */}
       {showAddModal && (
         <Modal onClose={() => setShowAddModal(false)}>
-          <AddNewJob onAdd={handleAddJob} />
+          <AddNewJob onAdd={handleAddJob} newJobId={jobs.length + 1} />
         </Modal>
       )}
 

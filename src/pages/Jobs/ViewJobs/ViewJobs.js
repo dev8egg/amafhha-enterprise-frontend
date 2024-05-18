@@ -23,11 +23,11 @@ const ViewJobs = ({ jobs, onViewDetail, onDelete }) => {
               <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                 <td className="border px-4 py-2">{job.id}</td>
                 <td className="border px-4 py-2">{job.name}</td>
-                <td className="border px-4 py-2">{job.by}</td>
+                <td className="border px-4 py-2">{job.created_by}</td>
                 <td className="border px-4 py-2">{job.created_at}</td>
                 <td className="border px-4 py-2">
-                  <button className="mr-2 text-blue-500" onClick={() => onViewDetail(job.id)}>View Detail</button>
-                  <button className="text-red-500" onClick={() => onDelete(job.id)}>Delete</button>
+                  <button className="mr-2 text-blue-500 hover:text-blue-700" onClick={() => onViewDetail(job.id)}>View Detail</button>
+                  <button className="text-red-500 hover:text-red-700" onClick={() => onDelete(job.id)}>Delete</button>
                 </td>
               </tr>
             ))}
