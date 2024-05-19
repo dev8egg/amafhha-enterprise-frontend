@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
     // For example, clear the authentication token from localStorage
     localStorage.removeItem('authToken');
     // Redirect the user to the login page
-    window.location.href = '/login'; // or use history.push('/login') if you have access to history object
+    window.location.href = '/#/login'; // or use history.push('/login') if you have access to history object
   };
 
   return (
