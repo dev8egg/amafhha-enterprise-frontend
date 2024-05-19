@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faLock, faSignInAlt } from '@fortawesome/free-solid-svg-icons'; // Import necessary Font Awesome icons
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -22,50 +23,49 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div>
-          <h1 className="text-center text-6xl font-extrabold text-gray-900">Amafhha Enterprise</h1>
-          <h2 className="mt-6 text-center text-3xl text-gray-900">Sign in to your account</h2>
-          {errorMessage && <div className="mt-4 text-center text-red-500">{errorMessage}</div>}
-        </div>
-        <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-          <div className="rounded-md shadow-sm -space-y-px">
-            <div>
-              <label htmlFor="username" className="sr-only">Username</label>
-              <input id="username" name="username" type="text" autoComplete="username" required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-indigo-500 to-purple-700">
+      <div className="max-w-md w-full bg-white shadow-md rounded-lg px-8 py-6">
+        <h1 className="text-3xl font-extrabold text-indigo-700 text-center mb-6">Welcome to Amafhha Enterprise</h1>
+        <h2 className="text-xl text-gray-700 text-center mb-8">Sign in to your account</h2>
+        {errorMessage && <div className="text-red-500 text-center mb-4">{errorMessage}</div>}
+        <form onSubmit={handleLogin}>
+          <div className="mb-4">
+            <div className="relative border-b-2 border-indigo-500 pb-2">
+              <FontAwesomeIcon icon={faUser} className="absolute top-2 left-0 text-gray-400" />
+              <input
+                id="username"
+                name="username"
+                type="text"
+                autoComplete="username"
+                className="w-full py-2 pl-10 border-none focus:outline-none bg-transparent placeholder-gray-400"
                 placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
+                required
+                aria-label="Username"
               />
             </div>
-            <div>
-              <label htmlFor="password" className="sr-only">Password</label>
-              <input id="password" name="password" type="password" autoComplete="current-password" required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+          </div>
+          <div className="mb-6">
+            <div className="relative border-b-2 border-indigo-500 pb-2">
+              <FontAwesomeIcon icon={faLock} className="absolute top-2 left-0 text-gray-400" />
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autoComplete="current-password"
+                className="w-full py-2 pl-10 border-none focus:outline-none bg-transparent placeholder-gray-400"
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
+                aria-label="Password"
               />
             </div>
           </div>
-
-          <div>
-            <button type="submit"
-              className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                {/* <!-- Heroicon name: solid/lock-closed --> */}
-                <svg className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fillRule="evenodd"
-                    d="M10 12a2 2 0 100-4 2 2 0 000 4zM4 8V6a4 4 0 118 0v2h1a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6a1 1 0 011-1h1z"
-                    clipRule="evenodd" />
-                </svg>
-              </span>
-              Sign in
-            </button>
-          </div>
+          <button type="submit" className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <FontAwesomeIcon icon={faSignInAlt} className="mr-2" /> Sign in
+          </button>
         </form>
       </div>
     </div>
