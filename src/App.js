@@ -11,6 +11,7 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
+    console.log("working")
     // Check if authentication token exists in local storage
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
@@ -20,10 +21,14 @@ const App = () => {
     }
   }, []);
 
+  const onLogin = (isLoggedIn)=>{
+    setAuthenticated(isLoggedIn)
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login onLogin={onLogin}/>} />
          <Route
           path="/dashboard/"
           element={authenticated ? <Layout><Dashboard /></Layout> : <Navigate to="/login" />}
