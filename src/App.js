@@ -11,11 +11,9 @@ const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
 
   useEffect(() => {
-    console.log("working")
     // Check if authentication token exists in local storage
     const authToken = localStorage.getItem('authToken');
     if (authToken) {
-      console.log(authToken, "------------------- yaye");
       // If token exists, set authenticated to true
       setAuthenticated(true);
     }
