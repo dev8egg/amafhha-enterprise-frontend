@@ -75,7 +75,7 @@ const ViewJobDetail = ({ job }) => {
         </div>
       </div>
       <div className="flex justify-end py-6 px-6">
-        <Link to={`/cuttingprogram/${job.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+        <Link to={`/dashboard/cutting-request/new-request/${job.id}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
           Create Cutting Program
         </Link>
       </div>

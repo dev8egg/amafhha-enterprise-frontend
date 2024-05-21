@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Jobs from './pages/Jobs/Jobs';
 import Inventory from './pages/Inventory/Inventory';
 import CuttingRequest from './pages/CuttingRequest/CuttingRequest';
+import NewReqeust from './pages/CuttingRequest/NewRequest/NewRequest';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -19,15 +20,15 @@ const App = () => {
     }
   }, []);
 
-  const onLogin = (isLoggedIn)=>{
+  const onLogin = (isLoggedIn) => {
     setAuthenticated(isLoggedIn)
   }
 
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login onLogin={onLogin}/>} />
-         <Route
+        <Route path="/login" element={<Login onLogin={onLogin} />} />
+        <Route
           path="/dashboard/"
           element={authenticated ? <Layout><Dashboard /></Layout> : <Navigate to="/login" />}
         />
@@ -43,6 +44,11 @@ const App = () => {
           path="/dashboard/cutting-request/"
           element={authenticated ? <Layout><CuttingRequest /></Layout> : <Navigate to="/login" />}
         />
+        <Route
+          path="/dashboard/cutting-request/new-request/:id"
+          element={authenticated ? <Layout><NewReqeust /></Layout> : <Navigate to="/login" />}
+        />
+
         {/* Redirect to login if not authenticated */}
         <Route
           path="/*"
