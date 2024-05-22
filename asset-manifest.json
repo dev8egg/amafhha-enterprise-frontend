@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/amafhha-enterprise-frontend/static/css/main.d7f41bda.css",
-    "main.js": "/amafhha-enterprise-frontend/static/js/main.d3d532ec.js",
+    "main.css": "/amafhha-enterprise-frontend/static/css/main.8dcb4533.css",
+    "main.js": "/amafhha-enterprise-frontend/static/js/main.7a046b2e.js",
     "static/js/453.748b8bf8.chunk.js": "/amafhha-enterprise-frontend/static/js/453.748b8bf8.chunk.js",
+    "static/media/logo.png": "/amafhha-enterprise-frontend/static/media/logo.420b693c1dcd672854cd.png",
+    "static/media/hdr-logo.png": "/amafhha-enterprise-frontend/static/media/hdr-logo.20ea486def017416b47a.png",
     "index.html": "/amafhha-enterprise-frontend/index.html",
-    "main.d7f41bda.css.map": "/amafhha-enterprise-frontend/static/css/main.d7f41bda.css.map",
-    "main.d3d532ec.js.map": "/amafhha-enterprise-frontend/static/js/main.d3d532ec.js.map",
+    "main.8dcb4533.css.map": "/amafhha-enterprise-frontend/static/css/main.8dcb4533.css.map",
+    "main.7a046b2e.js.map": "/amafhha-enterprise-frontend/static/js/main.7a046b2e.js.map",
     "453.748b8bf8.chunk.js.map": "/amafhha-enterprise-frontend/static/js/453.748b8bf8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7f41bda.css",
-    "static/js/main.d3d532ec.js"
+    "static/css/main.8dcb4533.css",
+    "static/js/main.7a046b2e.js"
   ]
 }
