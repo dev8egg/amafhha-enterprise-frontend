@@ -107,7 +107,7 @@ const Jobs = () => {
 
       {/* Button to toggle Add New Job Modal */}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+        className="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded mt-4"
         onClick={() => setShowAddModal(true)}
       >
         Add New Job

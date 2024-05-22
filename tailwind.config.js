@@ -14,6 +14,16 @@ module.exports = {
           backgroundColor: '#555',
         },
       },
+      colors: {
+        // Define your custom colors here
+        'header-color': '#6B7280',//'#90252C',
+        'header-color-light': '#90252C',//'#F1DEDE', // lighter shade for header
+        'sidebar-color': '#701820',//'#FAC9CA',//'#BBACC1'
+        'sidebar-color-dark': '#90252C',//'#8D99AE', // darker shade for sidebar
+        'text-header-color-light': '#90252C',//'#F1DEDE', // text color for light header
+        'primary': '#90252C',
+        'primary-dark': '#701820',
+      },
     },
   },
   plugins: [
