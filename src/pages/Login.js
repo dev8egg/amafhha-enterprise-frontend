@@ -70,7 +70,7 @@ const Login = ({ onLogin }) => {
               />
             </div>
           </div>
-          <button type="submit" className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white" style={{ background: '#90252C', hover: 'rgba(145, 25, 31, 0.9)', focusRing: 'rgba(145, 25, 31, 0.8)' }}>
+          <button type="submit" className="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
             <FontAwesomeIcon icon={faSignInAlt} className="mr-2" /> Sign in
           </button>
         </form>
