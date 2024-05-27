@@ -14,7 +14,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Implement your login logic here
-    if (username === 'example' && password === 'password') {
+    if (username === 'mohammad' && password === 'testing123') {
       // Successful login
       localStorage.setItem('authToken', 'authenticated');
       onLogin(true); // Notify parent component of successful login
