@@ -1,32 +1,10 @@
 // CuttingRequest.js
 import React, { useState } from 'react';
 import ViewRequests from './ViewRequests/ViewRequest';
-
+import { cuttingRequests } from '../../data/data';
 
 const CuttingRequest = () => {
-  const [requests, setRequests] = useState([
-    {
-      CuttingRequestID: 1,
-      JobID: 2,
-      ProductName: "1KG Mithai Box",
-      sheet: {
-        material: "",
-        GSM: "",
-        packets: "",
-        cuttingSize: ""
-      }
-    },{
-      CuttingRequestID: 2,
-      JobID: 2,
-      ProductName: "1KG Mithai Box",
-      sheet: {
-        material: "",
-        GSM: "",
-        packets: "",
-        cuttingSize: ""
-      }
-    }
-  ]);
+  const [requests, setRequests] = useState(cuttingRequests);
 
   const handleViewRequest = (request) => {
     // Handle viewing the request details

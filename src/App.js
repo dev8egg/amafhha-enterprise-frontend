@@ -6,10 +6,11 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Jobs from './pages/Jobs/Jobs';
 import Inventory from './pages/Inventory/Inventory';
 import CuttingRequest from './pages/CuttingRequest/CuttingRequest';
-import NewReqeust from './pages/CuttingRequest/NewRequest/NewRequest';
+import NewRequest from './pages/CuttingRequest/NewRequest/NewRequest';
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false); // New state variable
 
   useEffect(() => {
     // Check if authentication token exists in local storage
@@ -18,10 +19,15 @@ const App = () => {
       // If token exists, set authenticated to true
       setAuthenticated(true);
     }
+    setAuthChecked(true); // Set authChecked to true after checking authentication
   }, []);
 
   const onLogin = (isLoggedIn) => {
-    setAuthenticated(isLoggedIn)
+    setAuthenticated(isLoggedIn);
+  };
+
+  if (!authChecked) {
+    return <div>Loading...</div>; // You can replace this with a loading spinner or similar
   }
 
   return (
@@ -46,9 +52,8 @@ const App = () => {
         />
         <Route
           path="/dashboard/cutting-request/new-request/:id"
-          element={authenticated ? <Layout><NewReqeust /></Layout> : <Navigate to="/login" />}
+          element={authenticated ? <Layout><NewRequest /></Layout> : <Navigate to="/login" />}
         />
-
         {/* Redirect to login if not authenticated */}
         <Route
           path="/*"
