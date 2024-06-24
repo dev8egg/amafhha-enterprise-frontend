@@ -5,7 +5,7 @@ import { faUser, faLock, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import logo from '../assets/logo.png'; // Adjust the path to your logo
 
 const Login = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -14,14 +14,40 @@ const Login = ({ onLogin }) => {
     e.preventDefault(); // Prevent the default form submission behavior
 
     // Implement your login logic here
-    if (username === 'mohammad' && password === 'testing123') {
-      // Successful login
-      localStorage.setItem('authToken', 'authenticated');
-      onLogin(true); // Notify parent component of successful login
+    if (email && password) {
+      var myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      var raw = JSON.stringify({
+        "email": email,
+        "password": password
+      });
+
+      var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+      };
+
+
+      fetch("/api/login", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log("result----", result.status)
+          if (result.status === 1) {
+            localStorage.setItem('authToken', result.data.token);
+            onLogin(true); // Notify parent component of successful login
+          }
+        })
+        .catch(error => console.log('error', error));
+
+      // if (email === 'mohammad' && password === 'testing123') {
+      //   // Successful login
       navigate('/dashboard');
     } else {
       // Failed login
-      setErrorMessage('Invalid username or password');
+      setErrorMessage('Please enter email or password');
     }
   };
 
@@ -40,16 +66,16 @@ const Login = ({ onLogin }) => {
             <div className="relative pb-2" style={{ borderBottom: '2px solid #90252C' }}>
               <FontAwesomeIcon icon={faUser} className="absolute top-2 left-0 text-gray-400" />
               <input
-                id="username"
-                name="username"
+                id="email"
+                name="email"
                 type="text"
-                autoComplete="username"
+                autoComplete="email"
                 className="w-full py-2 pl-10 border-none focus:outline-none bg-transparent placeholder-gray-400"
-                placeholder="Username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
-                aria-label="Username"
+                aria-label="email"
               />
             </div>
           </div>

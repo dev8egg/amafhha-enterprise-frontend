@@ -6,8 +6,28 @@ import logo from '../assets/hdr-logo.png'; // Import your logo
 
 const Layout = ({ children }) => {
   const handleLogout = () => {
-    localStorage.removeItem('authToken');
-    window.location.href = '/#/login';
+    fetch('/api/signout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Logout successful:', data);
+        localStorage.removeItem('authToken');
+        window.location.href = '/#/login';
+      })
+      .catch(error => {
+        console.error('Error during logout:', error);
+        // Handle the error if needed
+      });
   };
 
   return (

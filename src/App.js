@@ -24,6 +24,8 @@ const App = () => {
 
   const onLogin = (isLoggedIn) => {
     setAuthenticated(isLoggedIn);
+    if (isLoggedIn)
+      window.location.href = '/#/dashboard';
   };
 
   if (!authChecked) {
