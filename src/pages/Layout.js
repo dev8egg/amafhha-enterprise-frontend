@@ -6,7 +6,7 @@ import logo from '../assets/hdr-logo.png'; // Import your logo
 
 const Layout = ({ children }) => {
   const handleLogout = () => {
-    fetch('/api/signout', {
+    fetch('https://amafhha-enterprise-backend.onrender.com/api/signout', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
