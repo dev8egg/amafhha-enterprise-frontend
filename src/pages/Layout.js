@@ -22,7 +22,8 @@ const Layout = ({ children }) => {
       .then(data => {
         console.log('Logout successful:', data);
         localStorage.removeItem('authToken');
-        window.location.href = '/#/login';
+        window.location.href = '/amafhha-enterprise-frontend/#/login'; //-- for production
+        // window.location.href = '/#/login'; //-- for local
       })
       .catch(error => {
         console.error('Error during logout:', error);

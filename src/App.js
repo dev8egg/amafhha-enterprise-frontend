@@ -25,7 +25,8 @@ const App = () => {
   const onLogin = (isLoggedIn) => {
     setAuthenticated(isLoggedIn);
     if (isLoggedIn)
-      window.location.href = '/#/dashboard';
+      window.location.href = '/amafhha-enterprise-frontend/#/dashboard'; //-- for production
+    // window.location.href = '/#/dashboard'; //-- for local
   };
 
   if (!authChecked) {
